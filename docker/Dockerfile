@@ -4,7 +4,7 @@ WORKDIR /opt/ops
 
 COPY . /opt/utmsim
 
-RUN node install
+RUN npm install
 
 EXPOSE 8080
 
