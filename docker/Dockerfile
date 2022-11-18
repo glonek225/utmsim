@@ -1,10 +1,10 @@
 FROM node:latest
 
-WORKDIR /opt/ops
+WORKDIR /opt/utmsim
 
 COPY . /opt/utmsim
 
-RUN npm install
+RUN node install
 
 EXPOSE 8080
 
