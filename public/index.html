@@ -88,7 +88,7 @@
         }else {
             document.getElementById("geojson").style.display = "none";
         }
-        
+
 
         // a new OP element every x seconds
         var elementTimer = 300;
@@ -426,7 +426,7 @@
 
             pathnumber++;
             if(landed == 2){
-                
+
                 path_pos.features.length = 0;
             }
 
@@ -443,7 +443,7 @@
                     }
                     );
                     //const content = await rawResponse.json();
-                    
+
                 }
                 )();
             }
@@ -486,7 +486,7 @@
             op.operationTrajectory = {
                 "positionCRS": "WGS84",
                 "altitudeCRS": "WGS84",
-                "positionUncertainty": 50,
+                "positionUncertainty": 0.0005,
                 "altitudeUncertainty": 10,
                 "timingUncertainty": 10,
                 "altitudeType": "ABOVE_ELLIPSOID",
@@ -615,7 +615,7 @@
                 console.log(JSON.stringify(op));
             }
 
-            //sending 
+            //sending
             await sleep(10).then(() => {
                 (async () => {
                     const rawResponse = await fetch('/flightplan', {
@@ -666,7 +666,7 @@
             op.version = UUIDGeneratorBrowser();
             op.updateTime = new Date();
 
-            //sending 
+            //sending
             await sleep(10).then(() => {
                 (async () => {
                     const rawResponse = await fetch('/takeoff', {
@@ -692,7 +692,7 @@
             landed = 0;
             opsaved.state = "CLOSED";
 
-            //sending 
+            //sending
             await sleep(10).then(() => {
                 (async () => {
                     const rawResponse = await fetch('/declareEndOfFlight', {
@@ -716,7 +716,7 @@
             ack.access_token = access_token;
             ack.opID = opID;
 
-            //sending 
+            //sending
             await sleep(10).then(() => {
                 (async () => {
                     const rawResponse = await fetch('/ackAlert', {
@@ -742,7 +742,7 @@
                 map.getSource('geojson').setData(obj);
             }
 
-            
+
         }
 
 
